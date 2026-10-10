@@ -41,3 +41,25 @@
 **Related file:** `campusflow/tickets.py`
 
 **What I can now explain without AI:** Small experiments help me verify specific behaviours before relying on my code. Invalid input should be rejected instead of being stored as a ticket.
+
+
+
+## Interaction #3 — Critically Evaluating Ticket ID Generation
+
+**Problem:** I wanted to check how ticket ID generation behaves when an existing ticket has a malformed ID.
+
+**My initial understanding:** I expected the function to ignore IDs that do not follow the `T` followed by digits format.
+
+**Prompt to AI:** Help me test edge cases in my ticket ID generation and assess whether the results are safe.
+
+**Useful AI guidance:** I learned that testing malformed data can reveal assumptions in an implementation.
+
+**My independent experiment/test:** I created a test list containing `T001` and `TABC`, then created another ticket.
+
+**Verification result:** The function generated `T002`.
+
+**Decision:** The result matched the current implementation. However, I should not automatically assume that ignoring malformed IDs is always safe. If existing data contains duplicate IDs or malformed records, additional validation may be necessary. I will discuss this risk with my partner.
+
+**Related file:** `campusflow/tickets.py`
+
+**What I can now explain without AI:** An experiment confirms what code does in a specific situation, but I must still evaluate whether that behaviour meets the product requirements.
